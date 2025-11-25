@@ -1,0 +1,104 @@
+/* style.css */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: green;
+}
+
+header {
+    width: 100vw;
+    height: 30vh;  
+    position: relative;             
+    overflow: hidden;
+
+}
+
+#greeting {
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+/* Header layout */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 30vh;
+    min-height: 200px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    position: relative;             
+    overflow: hidden;
+}
+.header-container::before{
+    content: "";
+    position: absolute;
+    top: -10%;                        /* move image a little above the header */
+    left: 0;
+    width: 100%;
+    height: 140%;                      /* make image taller than header */
+    background-image: url('resbackgroundtwo.jpeg');
+    background-size: 100% 140%;            /* fill the box completely */
+    background-position: center;       /* center the image */
+    background-repeat: no-repeat;
+    z-index: -1; 
+}
+
+/* Left text */
+.header-left {
+
+    position: fixed;          /* position relative to the viewport */
+    left: 50%;                /* horizontal center */
+    transform: translateX(-50%); /* center only horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* center text inside the container */
+    z-index: 1;
+    
+}
+
+.header-left h1,
+.header-left h2,
+.header-left h3,
+.header-left h4 {
+    margin: 5px 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff; /* text color */
+}
+
+/* Right button */
+.header-right {
+    position: absolute; 
+    top: 0px;          /* distance from top */
+    right: 0px;        /* distance from right */
+    z-index: 2; 
+}
+
+#resume-button {
+    background-color: transparent; /* button background different from header */
+    color:black;            /* text color inside button */
+    border: 2px solid black; /* button border matches background */
+    padding: 8px 16px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#resume-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* light black on hover */
+}
+
+/* Responsive layout */
+@media screen and (max-width: 600px) {
+    .header-container {
+        flex-direction: column;  /* stack content vertically */
+        align-items: center;
+    }
+    .header-right {
+        margin-top: 15px;        /* spacing between text and button */
+    }
+}
